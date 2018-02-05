@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaladilloAnimal.Views.AdminPage"
+             BackgroundColor="Red">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="lblNombre" Text="Dueño" TextColor="White"/>
+                    <Entry x:Name="txtNombreDato" Text="{Binding DatoNombre, Mode=OneWayToSource}"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="lblDNI" Text="DNI" TextColor="White"/>
+                    <Entry x:Name="txtDNIDato" Text="{Binding DatoDni, Mode=OneWayToSource}"/>
+                </StackLayout>
+                <Button x:Name="btnCambiarUsuario" Text="Cambiar Usuario"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="lblTipoMascota" Text="Tipo Mascota" TextColor="White"/>
+                    <Picker x:Name="txtTipoMascota" ItemsSource="{Binding ListaTiposMascota}"
+                            SelectedIndex="{Binding DatoTipoMascota, Mode=OneWayToSource}"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="lblNombreMascota" Text="Nombre" TextColor="White"/>
+                        <Entry x:Name="txtNombreDeMascota" Text="{Binding DatoNombreMascota, Mode=OneWayToSource}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="lblEdadMascota" Text="Edad" TextColor="White"/>
+                        <Entry x:Name="txtEdadMascota" Text="{Binding DatoEdadMascota, Mode=OneWayToSource}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="lblColorMascota" Text="Objetivo" TextColor="White"/>
+                    <Entry x:Name="txtColorMascota" Text="{Binding DatoColorMascota, Mode=OneWayToSource}"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="lblPesoMascota" Text="Objetivo" TextColor="White"/>
+                    <Entry x:Name="txtPesoMascota" Text="{Binding DatoPesoMascota, Mode=OneWayToSource}"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                <Button x:Name="btnAgregar" Text="Añadir"/>
+                <Label x:Name="lblMensajeError" Text="{Binding MensajeError}" TextColor="White"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Label x:Name="lblClientes" Text="Usuarios" TextColor="White"/>
+                <ListView x:Name="lstClientes"
+                          ItemsSource="{Binding ListaClientes}"
+                          BackgroundColor="White"
+                          Margin="30">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Dni}"/>
+                                    <Label Text="{Binding NombreCliente}"/>
+                                    <Label Text="{Binding TipoMascota}"/>
+                                    <Label Text="{Binding Nombre}"/>
+                                    <Label Text="{Binding Edad}"/>
+                                    <Label Text="{Binding Color}"/>
+                                    <Label Text="{Binding Peso}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

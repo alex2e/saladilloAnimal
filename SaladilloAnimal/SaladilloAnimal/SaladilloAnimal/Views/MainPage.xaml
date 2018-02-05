@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaladilloAnimal"
+             x:Class="SaladilloAnimal.MainPage"
+             BackgroundColor="Red">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="StartAndExpand"
+                 Margin="300, 0, 300, 0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblUsuario" Text="Usuario" TextColor="White"
+                               Grid.Row="0" Grid.Column="0"/>
+                            <Entry x:Name="txtUsuario"
+                               Text="{Binding NombreCliente, Mode=TwoWay}"
+                               Grid.Row="1" Grid.Column="0"/>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblContra" Text="Contraseña" TextColor="White"
+                               Grid.Row="0" Grid.Column="0"/>
+                            <Entry x:Name="txtContra"
+                               Text="{Binding PassCliente, Mode=TwoWay}"
+                               IsPassword="true"
+                               Grid.Row="1" Grid.Column="0"/>
+                            <Button x:Name="btnEntrar" Text="Entrar"
+                                Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                <Label x:Name="lblError" Text="{Binding MensajeError}" HorizontalOptions="StartAndExpand" TextColor="White"/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
